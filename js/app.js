@@ -35,6 +35,7 @@ const handleScroll = () => {
    *
    * Horizantally its distance from right should be less than
    * or equall to the width of the viewport
+   *
    */
 
   let sectionInView;
