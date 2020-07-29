@@ -28,7 +28,28 @@ let navUl = document.querySelector("#navbar__list");
  */
 
 const handleScroll = () => {
-  console.log(event.target);
+  /**
+   * If an element is in the view port, its top and left are
+   * always greater than or equal to zero. Distance from bottom
+   * should be less than or equal to viewport height
+   *
+   * Horizantally its distance from right should be less than
+   * or equall to the width of the viewport
+   */
+
+  let sectionInView;
+  sections.forEach((section) => {
+    let sectionDetails = section.getBoundingClientRect();
+    let verticalPosition = sectionDetails.top + sectionDetails.height;
+
+    if (verticalPosition >= 0 && verticalPosition <= window.innerHeight) {
+      sectionInView = section.id;
+    }
+  });
+
+  if (sectionInView) {
+    setNewActiveSection(sectionInView);
+  }
 };
 
 const handleNavClick = () => {
